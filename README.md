@@ -1,7 +1,7 @@
 # Web services project with Spring Boot e JPA
 
 
-## Resources
+## Dependencies
 
 - Spring Boot
 - H2
