@@ -3,6 +3,9 @@ package com.educandoweb.springBootJPA.entities.pk;
 
 import com.educandoweb.springBootJPA.entities.Order;
 import com.educandoweb.springBootJPA.entities.Product;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -10,11 +13,19 @@ import java.util.Objects;
 
 // Auxiliary class to refer to Order and Product
 // primary keys
+
+@Embeddable
 public class OrderItemPK implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
     private Order order;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public Order getOrder() {
